@@ -13,14 +13,14 @@ namespace AspNetIdentity.WebApi.Services
     {
         public async Task SendAsync(IdentityMessage message)
         {
-            //await configSendGridasync(message);
             await configSendSmtp(message);
+            //await configSendGridasync(message);
         }
         private async Task configSendSmtp(IdentityMessage message)
         {
             using (System.Net.Mail.MailMessage MailSetup = new System.Net.Mail.MailMessage())
             {
-                NetworkCredential loginInfo = new NetworkCredential("vicandres94@gmail.com", "vicandres24");
+                NetworkCredential loginInfo = new NetworkCredential("victor-andresmedina@hotmail.com", "vicandres24");
                 MailSetup.Subject = message.Subject;
                 MailSetup.To.Add(message.Destination);
                 MailSetup.From = new System.Net.Mail.MailAddress("tramites@valledupar.gov.co", "Avanzar es Posible!!!");
